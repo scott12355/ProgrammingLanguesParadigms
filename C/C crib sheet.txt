@@ -1,0 +1,150 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+//example procedure for adding two numbers
+int addTwoNumbers(int num1, int num2)
+{
+    return num1 + num2;
+}
+
+//example procedure for returning dynamically allocated memory
+int * getArrayOfOnes(int size)
+{
+  int * myDynamicIntArray = malloc(sizeof(int) * size);
+  for(int i = 0; i < size; i++)
+    myDynamicIntArray[i] = 1;
+  return myDynamicIntArray;
+}
+
+int main(void) {
+
+  // Variables + Types
+  printf("Variables and Types\n");
+
+  int a = 3;
+  int b = 1;
+  
+  char c = 'c';
+
+  float f = 1.5;
+
+  int * aPtr = & a;
+  float * fPtr = & f;
+
+  char * myStr = "Hello World!";
+
+  printf("%i, %c, %f, %p, %p\n",a,c,f,aPtr,fPtr);
+
+  printf("%s\n",myStr);
+  printf("\n");
+
+  // Arrays 
+  printf("Arrays\n");
+
+  int myInt[3];
+
+  myInt[0] = 1;
+  myInt[1] = 5;
+  myInt[2] = 10;
+
+  printf("%i\n",myInt[0]);
+
+  printf("%i\n",* (myInt+2));
+  printf("\n");
+
+  // If-else 
+  printf("If-else\n");
+
+  int x = 10;
+
+  if(x < 5) 
+  {
+    printf("abc\n");
+  }
+  else
+  {
+    printf("123\n");
+  }
+  
+  x = 0;
+  
+  if(x)
+  {
+      printf("xyz\n");
+  }
+  else
+  {
+      printf("456\n");
+  }
+  printf("\n");
+
+  // For + while 
+  printf("Loops\n");
+
+  for(int i = 0, j = 0; i + j < 10; i++, j++)
+  {
+    printf("%i, %i",i,j);
+  }
+
+  printf("\n");
+
+  int whileCondition = 5;
+
+  while(whileCondition > 0)
+  {
+    printf("hello world");
+    whileCondition--;
+  }
+  printf("\n\n");
+
+  // Procedures
+  printf("Procedures\n");
+  
+  int param1 = 5;
+  int param2 = 10;
+  
+  int result = addTwoNumbers(param1,param2);
+  
+  printf("%i\n\n",result);
+
+  // Malloc
+  printf("Malloc\n");
+  int * y =  malloc(sizeof(int) * 3);
+
+  y[0] =  5;
+  y[1] =  10;
+  y[2] =  15;
+
+  printf("%i\n", y[1]);
+
+  int * myArray = getArrayOfOnes(5);
+  printf("%i\n",myArray[0]);
+
+  int * myArray2 = getArrayOfOnes(15);
+  printf("%i\n",myArray[10]);
+  printf("\n");
+
+  // Structs
+  printf("Type Abstraction\n");
+
+  struct point
+  {
+    int x;
+    int y;
+  };
+
+  struct point p1;
+  p1.x = 1;
+  p1.y = 2;
+
+  struct point p2;
+  p2.x = 5;
+  p2.y = 10;
+  
+  printf("x = %i, y = %i\n",p1.x,p1.y);
+  printf("x = %i, y = %i\n",p2.x,p2.y);
+  
+
+  return 0;
+}
